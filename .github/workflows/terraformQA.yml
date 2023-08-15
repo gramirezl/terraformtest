@@ -1,0 +1,32 @@
+name: terraformQA
+on:
+  workflow_dispatch:
+    inputs:
+      force_build:
+        description: Force Build
+        type: boolean
+        default: false
+        required: false
+  push:
+    branches:
+      - develop
+    paths:
+      - Infraestructure/Provisioning/QAs/**
+jobs:
+  build:
+    name: Execute Terraform
+    runs-on: [self-hosted, guspc]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Terrafrom Script
+        working-directory: Infraestructure/Provisioning/QA/
+        run: |
+          az account set --subscription ${{ secrets.AZUREGETRONICSSUBCRIPTION }}
+          terraform  init
+          terraform validate
+          terraform plan
+##        terraform apply -auto-approve

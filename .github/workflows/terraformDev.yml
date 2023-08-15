@@ -1,0 +1,30 @@
+name: terraformDev
+on:
+  workflow_dispatch:
+    inputs:
+      force_build:
+        description: Force Build
+        type: boolean
+        default: false
+        required: false
+  push:
+    branches:
+      - develop
+    paths:
+      - Infraestructure/Provisioning/Dev/**
+jobs:
+  init:
+    name: "Init Terraform"
+    runs-on: [self-hosted, guspc]
+    steps:
+      - name: "init test"
+        run: echo "llamado de prueba"
+  terraform-execute:
+    runs-on: [self-hosted, guspc]
+    needs: [init]
+    steps:
+      - name: Terraform
+        uses: DevSecOps-Axity/devsecops_pipelines/.github/actions/terraform@v1
+        with:
+          workingDirectory: Infraestructure/Provisioning/Dev/
+          azureSubscription: ${{ secrets.AZUREGETRONICSSUBCRIPTION }}
