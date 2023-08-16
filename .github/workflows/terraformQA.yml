@@ -25,7 +25,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          cli_config_credentials_token: LOrQVz0Qy2RYdw.atlasv1.BWqetUMBolMsY0Lu1IbzC9g3ObXkhg8MNdzwvl6Kw9FpuGc6Etn7bDq825REeDIWWPI
+          cli_config_credentials_token: CkZ4UpG5vVajQQ.atlasv1.z9zV45yPiIdtRqr56P5ghSflsBBuC2KZGyueyQGgtLZtyKU5UKCvU2Jd0vvsEnwwc3E
 
       - name: Terraform Init
         working-directory: Infraestructure/Provisioning/QA/        

@@ -15,7 +15,3 @@ provider "azurerm" {
   client_secret = "RLD8Q~1jsklrCmLG6~bz2Fu4Ld.vVI8tzgkvHbRZ"
   features {}
 }
-
-credentials "app.terraform.io" {
-  token = "LOrQVz0Qy2RYdw.atlasv1.BWqetUMBolMsY0Lu1IbzC9g3ObXkhg8MNdzwvl6Kw9FpuGc6Etn7bDq825REeDIWWPI"
-}
