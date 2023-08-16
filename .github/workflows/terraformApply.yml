@@ -1,6 +1,13 @@
 name: "Terraform Apply"
 
 on:
+  workflow_dispatch:
+    inputs:
+      force_build:
+        description: Force Build
+        type: boolean
+        default: false
+        required: false
   push:
     branches:
     - develop
