@@ -1,5 +1,12 @@
 # Configure the Azure provider
 terraform {
+  cloud {
+    organization = "GustavoOrg"
+
+    workspaces {
+      name = "Env_QA"
+    }
+  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
