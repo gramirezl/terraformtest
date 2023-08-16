@@ -29,7 +29,8 @@ jobs:
 
       - name: Terraform Init
         working-directory: Infraestructure/Provisioning/QA/        
-        run: |
-          terraform init
-          terraform validate
-          terraform plan
+        run: terraform init -input=false
+      
+      - name: Terraform Plan
+        working-directory: Infraestructure/Provisioning/QA/        
+        run: terraform plan -input=false
