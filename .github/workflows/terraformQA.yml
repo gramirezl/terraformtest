@@ -22,10 +22,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Terrafrom Script
-        working-directory: Infraestructure/Provisioning/QA/
-        run: |
-          terraform init
-          terraform validate
-          terraform plan
-##        terraform apply -auto-approve
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: CkZ4UpG5vVajQQ.atlasv1.z9zV45yPiIdtRqr56P5ghSflsBBuC2KZGyueyQGgtLZtyKU5UKCvU2Jd0vvsEnwwc3E
+
+      - name: Terraform Init
+        working-directory: Infraestructure/Provisioning/QA/        
+        run: terraform init -input=false
+      
+      - name: Terraform Plan
+        working-directory: Infraestructure/Provisioning/QA/        
+        run: terraform plan -input=false
