@@ -1,7 +1,7 @@
 # Configure the Azure provider
 terraform {
   cloud {
-    organization = "GustavaaoOrg"
+    organization = "GustavoOrg"
 
     workspaces {
       name = "Env_QA"
